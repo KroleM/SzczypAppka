@@ -1,6 +1,9 @@
 ﻿namespace Database.Models
 {
-	public class AgeType : DictionaryTable
+	public enum AgeType
 	{
+		Child,
+		Adult,
+		Senior
 	}
 }
