@@ -7,7 +7,8 @@
 		public int Age { get; set; }
 		public int AgeTypeId { get; set; }
 		public virtual AgeType AgeType { get; set; }
-		public bool Sex { get; set; }
+		public int SexId { get; set; }
+		public virtual Sex Sex { get; set; }
 		public ICollection<Vaccination> Vaccinations { get; } = new List<Vaccination>();
 		//Picture?
 	}

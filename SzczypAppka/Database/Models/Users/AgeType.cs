@@ -2,8 +2,8 @@
 {
 	public enum AgeType
 	{
-		Child,
-		Adult,
-		Senior
+		CHILD,
+		ADULT,
+		SENIOR
 	}
 }

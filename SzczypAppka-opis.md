@@ -18,7 +18,7 @@
 
 ### Baza danych
 
-* `public virtual Illness Illness { get; set; }` - `virtual` oznacza Lazy-Loading, czyli ładowanie danej z bazy danych dopiero, gdy bezpośrednio się o nią poprosi (czyli kiedy?)
+* `public virtual Illness Illness { get; set; }` - `virtual` oznacza Lazy-Loading, czyli ładowanie danej z bazy danych dopiero, gdy bezpośrednio się o nią poprosi (czyli kiedy? Include?)
 * `public ICollection<Scheme> Schemes { get; } = new List<Scheme>();`
 * Można stosować `enumy` - wówczas mają id typu int odpowiadające wartości enuma (patrz AgeType)
 * 

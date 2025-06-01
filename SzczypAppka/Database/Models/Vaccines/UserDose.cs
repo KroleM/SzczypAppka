@@ -7,7 +7,7 @@
 		public int? DoseId { get; set; }
 		public virtual Dose? Dose { get; set; } = null!;
 		public DateTimeOffset PlannedDoseDate { get; set; }
-		public DateTimeOffset DoseDate { get; set; }
+		public DateTimeOffset? DoseDate { get; set; }
 		public bool IsCompleted { get; set; }
 	}
 }

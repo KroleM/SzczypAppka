@@ -6,9 +6,9 @@ namespace Database.Context
 	public sealed class VacDatabaseContext : DbContext
 	{
 		#region Constructor
-		//public VacDatabaseContext(DbContextOptions<VacDatabaseContext> options) : base(options)
-		//{
-		//}
+		public VacDatabaseContext(DbContextOptions<VacDatabaseContext> options) : base(options)
+		{
+		}
 		#endregion
 
 		#region DbSets
@@ -20,6 +20,13 @@ namespace Database.Context
 		public Scheme Scheme { get; set; }
 		public Dose Dose { get; set; }
 		public UserDose UserDose { get; set; }
+		#endregion
+
+		#region Methods
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VacDatabase;Trusted_Connection=True;MultipleActiveResultSets=true;");
+		}
 		#endregion
 	}
 }
