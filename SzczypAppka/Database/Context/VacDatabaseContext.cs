@@ -5,12 +5,6 @@ namespace Database.Context
 {
 	public sealed class VacDatabaseContext : DbContext
 	{
-		#region Constructor
-		public VacDatabaseContext(DbContextOptions<VacDatabaseContext> options) : base(options)
-		{
-		}
-		#endregion
-
 		#region DbSets
 		public DbSet<User> User { get; set; }
 		public DbSet<Vaccination> Vaccination { get; set; }

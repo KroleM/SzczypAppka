@@ -21,4 +21,28 @@
 * `public virtual Illness Illness { get; set; }` - `virtual` oznacza Lazy-Loading, czyli ładowanie danej z bazy danych dopiero, gdy bezpośrednio się o nią poprosi (czyli kiedy? Include?)
 * `public ICollection<Scheme> Schemes { get; } = new List<Scheme>();`
 * Można stosować `enumy` - wówczas mają id typu int odpowiadające wartości enuma (patrz AgeType)
+* Projekt `Database` jest typu `Class Library`, zatem definiowanie jego parametrów trzeba zrobić w klasie dziedziczącej z `DbContext` w metodzie `OnConfiguring`:
+    ```
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+	{
+		optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=VacDatabase;Trusted_Connection=True;MultipleActiveResultSets=true;");
+	}
+    ```
+    Ten sposób tworzenia DbContext wymaga, aby konstruktor tej [klasy był bezparametrowy][link1].
 * 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[link1]: https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli
