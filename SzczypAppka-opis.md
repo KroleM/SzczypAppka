@@ -32,7 +32,10 @@
 * 
 
 
+### Aplikacja desktopowa
 
+* Klasyczne użycie wzorca MVVM bez posługiwania się kontrolerami (Shell - MVC)
+* [Walidacja wprowadzanych danych][link2]
 
 
 
@@ -46,3 +49,4 @@
 
 
 [link1]: https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli
+[link2]: https://learn.microsoft.com/en-us/dotnet/architecture/maui/validation?source=recommendations

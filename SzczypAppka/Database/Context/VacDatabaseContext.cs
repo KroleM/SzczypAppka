@@ -8,12 +8,12 @@ namespace Database.Context
 		#region DbSets
 		public DbSet<User> User { get; set; }
 		public DbSet<Vaccination> Vaccination { get; set; }
-		public Illness Illness { get; set; }
-		public Vaccine Vaccine { get; set; }
-		public IllnessVaccine IllnessVaccine { get; set; }
-		public Scheme Scheme { get; set; }
-		public Dose Dose { get; set; }
-		public UserDose UserDose { get; set; }
+		public DbSet<Illness> Illness { get; set; }
+		public DbSet<Vaccine> Vaccine { get; set; }
+		public DbSet<IllnessVaccine> IllnessVaccine { get; set; }
+		public DbSet<Scheme> Scheme { get; set; }
+		public DbSet<Dose> Dose { get; set; }
+		public DbSet<UserDose> UserDose { get; set; }
 		#endregion
 
 		#region Methods
