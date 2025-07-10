@@ -1,12 +1,14 @@
-﻿namespace DesktopApp
+﻿using DesktopApp.ViewModels;
+
+namespace DesktopApp
 {
 	public partial class App : Application
 	{
-		public App()
+		public App(MainViewModel mainViewModel)
 		{
 			InitializeComponent();
 
-			MainPage = new MainPage();
+			MainPage = new MainPage(mainViewModel);
 		}
 	}
 }

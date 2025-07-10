@@ -1,12 +1,16 @@
-﻿namespace DesktopApp
+﻿using DesktopApp.ViewModels;
+
+namespace DesktopApp
 {
 	public partial class MainPage : ContentPage
 	{
 		int count = 0;
 
-		public MainPage()
+		public MainPage(MainViewModel mainViewModel)
 		{
 			InitializeComponent();
+
+			BindingContext = mainViewModel;
 		}
 
 		private void OnCounterClicked(object sender, EventArgs e)
