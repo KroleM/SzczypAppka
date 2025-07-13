@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-             x:Class="DesktopApp.MainPage">
+             x:Class="DesktopApp.MainPage"
+             xmlns:viewmodels="clr-namespace:DesktopApp.ViewModels"
+             xmlns:views="clr-namespace:DesktopApp.Views"
+             x:DataType="viewmodels:MainViewModel">
 
     <ScrollView>
         <VerticalStackLayout
@@ -33,6 +36,11 @@
                 HorizontalOptions="Fill" />
 
             <Label Text="{Binding Title}"/>
+
+            <ContentView BackgroundColor="YellowGreen" BindingContext="{Binding AdditionalViewModel}"/>
+            
+            <views:AdditionalView BackgroundColor="Brown" BindingContext="{Binding AdditionalViewModel}"/>
+            
         </VerticalStackLayout>
     </ScrollView>
 
