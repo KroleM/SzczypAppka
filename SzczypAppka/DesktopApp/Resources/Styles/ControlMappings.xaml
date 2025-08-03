@@ -5,8 +5,8 @@
                     xmlns:viewmodels="clr-namespace:DesktopApp.ViewModels"
                     xmlns:views="clr-namespace:DesktopApp.Views">
 
-    <DataTemplate x:DataType="viewmodels:AdditionalViewModel" x:Key="AAA">
-        <views:AdditionalView/>
+    <DataTemplate x:DataType="viewmodels:ApplicationViewModel" x:Key="applicationTemplate">
+        <views:ApplicationView/>
     </DataTemplate>
 
 </ResourceDictionary>
