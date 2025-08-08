@@ -36,12 +36,19 @@
 
 * Klasyczne użycie wzorca MVVM bez posługiwania się kontrolerami (Shell - MVC)
 * [Walidacja wprowadzanych danych][link2]
+* [Obfuscar][link3]
+* W MAUI nie można zadeklarować globalnego mapowania view-modeli na widoki?! Każdy `DataTemplate` w `ResourceDictionary` musi mieć x:Key (app-level / page-level). Tylko gdy jest definiowany wewnątrz np. CollectionView to wystarczy, żeby miał x:DataType (control-level). Oznacza to, iż żeby wprowadzić sterowanie VM-first należy używać `DataTemplateSelector`ów.
 
 
 
 
+## Zadania
 
-
+1. Utworzyć pierwszy zgrubny widok i jego view-model (MainViewModel + VM prawej części)
+2. Opracować połączenie z bazą danych
+3. Opracować style
+4. Asynchroniczność
+5. Przełączanie między widokami na ekranie głównym - DataTemplate w zależności od VM, czy sterowanie widocznością danych widoków poprzez VM?
 
 
 
@@ -50,3 +57,4 @@
 
 [link1]: https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli
 [link2]: https://learn.microsoft.com/en-us/dotnet/architecture/maui/validation?source=recommendations
+[link3]: https://docs.lextudio.com/obfuscar/
