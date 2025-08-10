@@ -3,24 +3,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaApp.Views.AdminView"
+             x:Class="AvaloniaApp.Views.NewIllnessView"
 			 xmlns:vm="using:AvaloniaApp.ViewModels"
-			 xmlns:views="using:AvaloniaApp.Views"
-			 x:DataType="vm:AdminViewModel">
+			 x:DataType="vm:NewIllnessViewModel">
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
 		<vm:AdminViewModel/>
 	</Design.DataContext>
 
-	<UserControl.DataTemplates>
-		<DataTemplate DataType="vm:NewIllnessViewModel">
-			<views:NewIllnessView/>
-		</DataTemplate>
-	</UserControl.DataTemplates>
-
-	<StackPanel Background="Brown">
-		<Label Content="{Binding Title}" HorizontalContentAlignment="Center"/>
-		<ContentControl Content="{Binding CurrentViewModel}"/>
-	</StackPanel>
+	<Grid RowDefinitions="Auto,Auto,Auto,Auto,*" 
+		  ColumnDefinitions="Auto,*">
+		<Label Grid.Row="0" Grid.Column="0" Content="Nazwa"/>
+		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
+		<Label Grid.Row="1" Grid.Column="0" Content="Opis"/>
+		<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
+		<Label Grid.Row="2" Grid.Column="0" Content="Nazwa"/>
+		<CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding IsActive}"/>
+		<Button Grid.Row="3" Grid.Column="0" Content="Zapisz"
+				Command="{Binding SaveCommand}"/>
+	</Grid>
 </UserControl>
