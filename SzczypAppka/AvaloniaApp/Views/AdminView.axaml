@@ -14,6 +14,9 @@
 	</Design.DataContext>
 
 	<UserControl.DataTemplates>
+		<DataTemplate DataType="vm:AllIllnessesViewModel">
+			<views:AllIllnessView/>
+		</DataTemplate>
 		<DataTemplate DataType="vm:NewIllnessViewModel">
 			<views:NewIllnessView/>
 		</DataTemplate>
@@ -21,6 +24,8 @@
 
 	<StackPanel Background="Brown">
 		<Label Content="{Binding Title}" HorizontalContentAlignment="Center"/>
+		<Button Content="Wszystkie Choroby" Command="{Binding OpenAllIllnessesCommand}"/>
+		<Button Content="Nowa Choroba" Command="{Binding OpenNewIllnessCommand}"/>
 		<ContentControl Content="{Binding CurrentViewModel}"/>
 	</StackPanel>
 </UserControl>

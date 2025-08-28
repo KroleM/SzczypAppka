@@ -38,6 +38,7 @@ namespace AvaloniaApp.ViewModels
 			};
 
 			await _vacDatabaseContext.AddAsync(newIllness);
+			await _vacDatabaseContext.SaveChangesAsync();
 		}
 	}
 }

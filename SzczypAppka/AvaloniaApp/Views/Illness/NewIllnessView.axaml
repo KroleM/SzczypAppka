@@ -9,7 +9,7 @@
 	<Design.DataContext>
 		<!-- This only sets the DataContext for the previewer in an IDE,
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-		<vm:AdminViewModel/>
+		<vm:NewIllnessViewModel/>
 	</Design.DataContext>
 
 	<Grid RowDefinitions="Auto,Auto,Auto,Auto,*" 
@@ -18,7 +18,7 @@
 		<TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Name}"/>
 		<Label Grid.Row="1" Grid.Column="0" Content="Opis"/>
 		<TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Description}"/>
-		<Label Grid.Row="2" Grid.Column="0" Content="Nazwa"/>
+		<Label Grid.Row="2" Grid.Column="0" Content="Aktywne"/>
 		<CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding IsActive}"/>
 		<Button Grid.Row="3" Grid.Column="0" Content="Zapisz"
 				Command="{Binding SaveCommand}"/>

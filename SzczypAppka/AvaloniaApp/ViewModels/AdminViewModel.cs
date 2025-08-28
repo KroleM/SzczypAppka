@@ -24,7 +24,7 @@ namespace AvaloniaApp.ViewModels
 		#region Private methods
 		private void OnOpenAllIllnesses()
 		{
-			CurrentViewModel = new NewIllnessViewModel();
+			CurrentViewModel = new AllIllnessesViewModel();
 		}
 		private void OnOpenNewIllness()
 		{
