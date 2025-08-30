@@ -1,19 +1,13 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using Database.Context;
-using Database.Models;
 using System;
-using System.Threading.Tasks;
 
 namespace AvaloniaApp.ViewModels
 {
-	public partial class NewIllnessViewModel : ViewModelBase
+	public partial class NewIllnessViewModel : BaseNewViewModel<Database.Models.Illness>
 	{
-		private readonly VacDatabaseContext _vacDatabaseContext;    //DbContext??
 		public NewIllnessViewModel()
+			: base("Nowa choroba")
 		{
-			_vacDatabaseContext = new VacDatabaseContext();
-			SaveCommand = new AsyncRelayCommand(Save);
 		}
 
 		[ObservableProperty]
@@ -25,10 +19,14 @@ namespace AvaloniaApp.ViewModels
 		[ObservableProperty]
 		bool _isActive = true;
 
-		public IAsyncRelayCommand SaveCommand { get; }
-		private async Task Save()
+		public override bool ValidateSave()
 		{
-			var newIllness = new Illness()
+			return true;
+		}
+
+		public override Database.Models.Illness SetItem()
+		{
+			return new Database.Models.Illness()
 			{
 				Name = _name,
 				Description = _description,
@@ -36,9 +34,6 @@ namespace AvaloniaApp.ViewModels
 				CreatedDate = DateTimeOffset.Now,
 				ModifiedDate = DateTimeOffset.Now,
 			};
-
-			await _vacDatabaseContext.AddAsync(newIllness);
-			await _vacDatabaseContext.SaveChangesAsync();
 		}
 	}
 }

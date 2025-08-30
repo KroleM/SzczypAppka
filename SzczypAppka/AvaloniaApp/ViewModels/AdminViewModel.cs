@@ -10,7 +10,7 @@ namespace AvaloniaApp.ViewModels
 		string _title = "ZARZĄDZANIE";
 
 		[ObservableProperty]
-		ViewModelBase _currentViewModel;
+		BaseViewModel _currentViewModel;
 
 		public ICommand OpenAllIllnessesCommand { get; }
 		public ICommand OpenNewIllnessCommand { get; }

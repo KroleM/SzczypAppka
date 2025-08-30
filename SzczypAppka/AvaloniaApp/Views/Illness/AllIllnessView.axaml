@@ -14,7 +14,7 @@
 
 	<Grid>
 		<Border BorderThickness="2" BorderBrush="Black">
-			<ListBox ItemsSource="{Binding Illnesses}">
+			<ListBox ItemsSource="{Binding ItemsCollection}">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
 						<Border BorderThickness="1" Margin="1">

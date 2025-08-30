@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AvaloniaApp.ViewModels.Abstract
+namespace AvaloniaApp.ViewModels.Illness
 {
-	internal class ANewViewModel
+	internal class EditIllnessViewModel
 	{
 	}
 }
