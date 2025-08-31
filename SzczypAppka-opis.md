@@ -40,6 +40,11 @@
 * W MAUI nie można zadeklarować globalnego mapowania view-modeli na widoki?! Każdy `DataTemplate` w `ResourceDictionary` musi mieć x:Key (app-level / page-level). Tylko gdy jest definiowany wewnątrz np. CollectionView to wystarczy, żeby miał x:DataType (control-level). Oznacza to, iż żeby wprowadzić sterowanie VM-first należy używać `DataTemplateSelector`ów.
 
 
+### Avalonia
+
+* Zmiana technologii na Avalonię, ponieważ lepiej nadaje się do desktopowych aplikacji wieloplatformowych. Sprawdzę jak działa na Macu (może też Linux?): instalator, BD, zapis/odczyt plików, itp.
+
+
 
 
 ## Zadania

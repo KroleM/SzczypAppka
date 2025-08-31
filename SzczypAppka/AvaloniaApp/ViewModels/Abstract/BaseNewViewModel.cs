@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AvaloniaApp.ViewModels
 {
-	public abstract class BaseNewViewModel<T> : BaseViewModel
+	public abstract class BaseNewViewModel<T> : DatabaseViewModel
 	{
 		protected BaseNewViewModel(string displayTitle = "") 
 			: base(displayTitle)

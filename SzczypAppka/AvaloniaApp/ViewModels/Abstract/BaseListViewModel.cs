@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace AvaloniaApp.ViewModels
 {
-	public abstract partial class BaseListViewModel<T> : BaseViewModel
+	public abstract partial class BaseListViewModel<T> : DatabaseViewModel
 	{
 		//FIXME wymaga dopracowania!
 		// Sortowanie, filtrowanie ?

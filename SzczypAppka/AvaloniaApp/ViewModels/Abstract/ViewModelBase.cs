@@ -5,9 +5,9 @@ namespace AvaloniaApp.ViewModels
 	public abstract partial class ViewModelBase : ObservableObject
 	{
 		[ObservableProperty]
-		bool _isBusy = false;
+		bool _isBusy;
 
-		//[ObservableProperty]
-		//string _title = string.Empty;
+		[ObservableProperty]
+		string _displayTitle = string.Empty;
 	}
 }
