@@ -43,7 +43,7 @@
 ### Avalonia
 
 * Zmiana technologii na Avalonię, ponieważ lepiej nadaje się do desktopowych aplikacji wieloplatformowych. Sprawdzę jak działa na Macu (może też Linux?): instalator, BD, zapis/odczyt plików, itp.
-
+* Asynchroniczne wczytywanie danych w [konstruktorze view-modelu][link4]. [Inny przykład][link5]
 
 
 
@@ -54,6 +54,9 @@
 3. Opracować style
 4. Asynchroniczność
 5. Przełączanie między widokami na ekranie głównym - DataTemplate w zależności od VM, czy sterowanie widocznością danych widoków poprzez VM?
+6. Generyczne widoki
+7. Ustawienia (opcje) - zapis do pliku
+8. Messenger (MVVM Toolkit)
 
 
 
@@ -63,3 +66,5 @@
 [link1]: https://learn.microsoft.com/en-us/ef/core/cli/dbcontext-creation?tabs=dotnet-core-cli
 [link2]: https://learn.microsoft.com/en-us/dotnet/architecture/maui/validation?source=recommendations
 [link3]: https://docs.lextudio.com/obfuscar/
+[link4]: https://www.damirscorner.com/blog/posts/20130506-CallingTaskBasedAsynchronousMethodsFromClassConstructors.html
+[link5]: https://www.conradakunga.com/blog/calling-async-methods-in-constructors/

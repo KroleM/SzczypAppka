@@ -7,10 +7,12 @@ namespace AvaloniaApp.ViewModels
 	public partial class AdminViewModel : ViewModelBase
 	{
 		[ObservableProperty]
-		string _title = "ZARZĄDZANIE";
+		string _title = "ZARZĄDZANIE";	//DisplayTitle?
 
 		[ObservableProperty]
-		DatabaseViewModel _currentViewModel;
+		DatabaseViewModel _currentViewModel;    //ObservableObject
+
+		//4 categories: Illness, Vaccine, Scheme, Dose
 
 		public ICommand OpenAllIllnessesCommand { get; }
 		public ICommand OpenNewIllnessCommand { get; }
@@ -29,6 +31,10 @@ namespace AvaloniaApp.ViewModels
 		private void OnOpenNewIllness()
 		{
 			CurrentViewModel = new NewIllnessViewModel();
+		}
+		private void OnOpenIlnessSection()
+		{
+			//CurrentViewModel = new IllnessViewModel();
 		}
 		#endregion
 	}

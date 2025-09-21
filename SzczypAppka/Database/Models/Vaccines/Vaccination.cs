@@ -1,5 +1,8 @@
 ﻿namespace Database.Models
 {
+	/// <summary>
+	/// Describes one whole vaccination procedure: user, illness, vaccine and doses.
+	/// </summary>
 	public class Vaccination : DictionaryTable
 	{
 		public int UserId { get; set; }
@@ -11,5 +14,6 @@
 		public DateTimeOffset? CompletionDate { get; set; }
 		public ICollection<UserDose> UserDoses { get; } = new List<UserDose>();
 
+		//Scheme? - available through UserDose.Dose
 	}
 }

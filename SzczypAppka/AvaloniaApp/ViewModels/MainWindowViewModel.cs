@@ -10,6 +10,33 @@ namespace AvaloniaApp.ViewModels
 		[ObservableProperty]
 		ViewModelBase _workingAreaViewModel;
 
+		//FIXME może ten lazy-loading w getterze dałoby się zastąpić jakąś generyczną klasą, np. LazyViewModel<T>, która miałaby T Value?
+		private AdminViewModel _adminViewModel;
+		public AdminViewModel AdminViewModel 
+		{ 
+			get
+			{
+				if (_adminViewModel is null)
+				{
+					_adminViewModel = new AdminViewModel();
+				}
+				return _adminViewModel;
+			}
+		}
+
+		private OptionsViewModel _optionsViewModel;
+		public OptionsViewModel OptionsViewModel
+		{
+			get
+			{
+				if (_optionsViewModel is null)
+				{
+					_optionsViewModel = new OptionsViewModel();
+				}
+				return _optionsViewModel;
+			}
+		}
+
 		public ICommand SetAdminViewCommand { get; }
 		public ICommand SetOptionsViewCommand { get; }
 
@@ -22,11 +49,11 @@ namespace AvaloniaApp.ViewModels
 		#region Private methods
 		private void OnSetAdminView()
 		{
-			WorkingAreaViewModel = new AdminViewModel();
+			WorkingAreaViewModel = AdminViewModel;
 		}
 		private void OnSetOptionsView()
 		{
-			WorkingAreaViewModel = new OptionsViewModel();
+			WorkingAreaViewModel = OptionsViewModel;
 		}
 		#endregion
 	}
