@@ -2,11 +2,13 @@
 
 namespace AvaloniaApp.ViewModels
 {
+	// FIXME do utworzenia uniwersalny view model dla IllnessViewModel, VaccineViewModel, SchemeViewModel, DoseViewModel
+
 	// Ta klasa będzie zarządzała widokami typu Illness (wszystkie, szczegóły, edycja, nowy)
 	public partial class IllnessViewModel : ObservableObject
 	{
 		[ObservableProperty]
-		DatabaseViewModel _mainIlnessViewModel; //czy będzie inny?
+		DatabaseViewModel? _mainIllnessViewModel; //czy będzie inny?
 
 		//4 view-modele do widoków, żeby zachowywać ich stan?
 		private AllIllnessesViewModel _listIllnessViewModel;
@@ -36,5 +38,10 @@ namespace AvaloniaApp.ViewModels
 		}
 
 		//4 komendy do otwierania view-modeli (zatem też widoków)
+
+		public IllnessViewModel()
+		{
+			MainIllnessViewModel = ListIllnessViewModel;
+		}
 	}
 }

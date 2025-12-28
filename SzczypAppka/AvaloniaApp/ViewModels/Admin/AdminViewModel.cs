@@ -1,5 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Database.Models;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 
 namespace AvaloniaApp.ViewModels
@@ -7,10 +9,17 @@ namespace AvaloniaApp.ViewModels
 	public partial class AdminViewModel : ViewModelBase
 	{
 		[ObservableProperty]
-		string _title = "ZARZĄDZANIE";	//DisplayTitle?
+		ViewModelBase? _currentViewModel;
+		//DatabaseViewModel _currentViewModel;
 
 		[ObservableProperty]
-		DatabaseViewModel _currentViewModel;    //ObservableObject
+		ObservableCollection<ButtonViewModel> _tables = new();
+
+		[ObservableProperty]
+		BaseTableViewModel<Illness>? _illnessViewModel;
+
+		[ObservableProperty]
+		BaseTableViewModel<Vaccine>? _vaccineViewModel;
 
 		//4 categories: Illness, Vaccine, Scheme, Dose
 
@@ -19,22 +28,29 @@ namespace AvaloniaApp.ViewModels
 
 		public AdminViewModel()
 		{
+			DisplayTitle = "ZARZĄDZANIE";
 			OpenAllIllnessesCommand = new RelayCommand(OnOpenAllIllnesses);
 			OpenNewIllnessCommand = new RelayCommand(OnOpenNewIllness);
+
+			Tables.Add(new ButtonViewModel("Choroby", new RelayCommand(OnOpenIlnessSection)));
 		}
 
 		#region Private methods
 		private void OnOpenAllIllnesses()
 		{
-			CurrentViewModel = new AllIllnessesViewModel();
+			//CurrentViewModel = new AllIllnessesViewModel();
 		}
 		private void OnOpenNewIllness()
 		{
-			CurrentViewModel = new NewIllnessViewModel();
+			//CurrentViewModel = new NewIllnessViewModel();
 		}
 		private void OnOpenIlnessSection()
 		{
-			//CurrentViewModel = new IllnessViewModel();
+			if (IllnessViewModel is null)
+			{
+				IllnessViewModel = new(new AllIllnessesViewModel(), new NewIllnessViewModel());
+			}
+			CurrentViewModel = IllnessViewModel;
 		}
 		#endregion
 	}

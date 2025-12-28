@@ -23,9 +23,23 @@
 	</UserControl.DataTemplates>
 
 	<StackPanel Background="Brown">
-		<Label Content="{Binding Title}" HorizontalContentAlignment="Center"/>
-		<Button Content="Wszystkie Choroby" Command="{Binding OpenAllIllnessesCommand}"/>
-		<Button Content="Nowa Choroba" Command="{Binding OpenNewIllnessCommand}"/>
-		<ContentControl Content="{Binding CurrentViewModel}"/>
+		<Label Content="{Binding DisplayTitle}" HorizontalContentAlignment="Center"/>
+		<Grid ColumnDefinitions="Auto,*">
+			<ItemsControl ItemsSource="{Binding Tables}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate>
+						<Button Content="{Binding DisplayTitle}" Command="{Binding ButtonCommand}" Margin="5,3"/>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+			<ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"
+				   IsVisible="{Binding CurrentViewModel, Converter={x:Static ObjectConverters.IsNotNull}}">
+				<ContentControl.ContentTemplate>
+					<DataTemplate>
+						<views:BaseTableView/>
+					</DataTemplate>
+				</ContentControl.ContentTemplate>
+			</ContentControl>
+		</Grid>
 	</StackPanel>
 </UserControl>
