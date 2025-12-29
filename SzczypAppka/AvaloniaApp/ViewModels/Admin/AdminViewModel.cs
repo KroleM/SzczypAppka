@@ -16,8 +16,7 @@ namespace AvaloniaApp.ViewModels
 		ObservableCollection<ButtonViewModel> _tables = new();
 
 		[ObservableProperty]
-		IllnessViewModel? _illnessViewModel;
-		//BaseTableViewModel<Illness>? _illnessViewModel;
+		BaseTableViewModel<Illness>? _illnessViewModel;
 
 		[ObservableProperty]
 		BaseTableViewModel<Vaccine>? _vaccineViewModel;
@@ -33,7 +32,8 @@ namespace AvaloniaApp.ViewModels
 			OpenAllIllnessesCommand = new RelayCommand(OnOpenAllIllnesses);
 			OpenNewIllnessCommand = new RelayCommand(OnOpenNewIllness);
 
-			Tables.Add(new ButtonViewModel("Choroby", new RelayCommand(OnOpenIlnessSection)));
+			Tables.Add(new ButtonViewModel("Choroby", new RelayCommand(OnOpenIllnessSection)));
+			Tables.Add(new ButtonViewModel("Szczepionki", new RelayCommand(OnOpenVaccineSection)));
 		}
 
 		#region Private methods
@@ -45,13 +45,21 @@ namespace AvaloniaApp.ViewModels
 		{
 			//CurrentViewModel = new NewIllnessViewModel();
 		}
-		private void OnOpenIlnessSection()
+		private void OnOpenIllnessSection()
 		{
 			if (IllnessViewModel is null)
 			{
 				IllnessViewModel = new(new AllIllnessesViewModel(), new NewIllnessViewModel());
 			}
 			CurrentAdminViewModel = IllnessViewModel;
+		}
+		private void OnOpenVaccineSection()
+		{
+			if (VaccineViewModel is null)
+			{
+				VaccineViewModel = new(new ListVaccineViewModel(), new NewVaccineViewModel());
+			}
+			CurrentAdminViewModel = VaccineViewModel;
 		}
 		#endregion
 	}

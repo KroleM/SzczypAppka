@@ -24,7 +24,7 @@
 
 	<StackPanel Background="Brown">
 		<Label Content="{Binding DisplayTitle}" HorizontalContentAlignment="Center"/>
-		<Grid ColumnDefinitions="Auto,*">
+		<Grid ColumnDefinitions="Auto,2,*">
 			<ItemsControl ItemsSource="{Binding Tables}">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate>
@@ -32,7 +32,9 @@
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
-			<ContentControl Grid.Column="1" Content="{Binding CurrentAdminViewModel}"
+			<Label Grid.Column="1" Background="Gray"/>
+			<ContentControl Grid.Column="2" Margin="5,0" 
+				   Content="{Binding CurrentAdminViewModel}"
 				   IsVisible="{Binding CurrentAdminViewModel, Converter={x:Static ObjectConverters.IsNotNull}}">
 				<ContentControl.ContentTemplate>
 					<DataTemplate>

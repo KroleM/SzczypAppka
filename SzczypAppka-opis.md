@@ -44,6 +44,7 @@
 
 * Zmiana technologii na Avalonię, ponieważ lepiej nadaje się do desktopowych aplikacji wieloplatformowych. Sprawdzę jak działa na Macu (może też Linux?): instalator, BD, zapis/odczyt plików, itp.
 * Asynchroniczne wczytywanie danych w [konstruktorze view-modelu][link4]. [Inny przykład][link5]
+* `ItemsControl` nie wspiera wirtualizacji - trzeba rozważyć ListBox albo ListView
 
 
 

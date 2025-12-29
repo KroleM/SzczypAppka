@@ -7,10 +7,7 @@
 			 xmlns:views="using:AvaloniaApp.Views"
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
 			 x:Class="AvaloniaApp.Views.BaseTableView"
-			 x:DataType="vm:TableViewModel">
-	<Design.DataContext>
-		<vm:IllnessViewModel/>
-	</Design.DataContext>
+			 x:CompileBindings="False">
 
 	<UserControl.DataTemplates>
 		<DataTemplate DataType="vm:AllIllnessesViewModel">
@@ -22,7 +19,18 @@
 	</UserControl.DataTemplates>
 
 	<StackPanel Orientation="Vertical">
-
+		<ItemsControl ItemsSource="{Binding TableCRUDs}">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Horizontal"/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate x:DataType="vm:ButtonViewModel">
+					<Button Content="{Binding DisplayTitle}" Command="{Binding ButtonCommand}" Margin="5,3"/>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
 		<ContentControl Content="{Binding CurrentViewModel}"/>
 	</StackPanel>
 </UserControl>
