@@ -1,8 +1,28 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="AvaloniaApp.Views.BaseTableView">
-  Welcome to Avalonia!
+			 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+			 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 xmlns:models="using:Database.Models"
+			 xmlns:vm="using:AvaloniaApp.ViewModels"
+			 xmlns:views="using:AvaloniaApp.Views"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="AvaloniaApp.Views.BaseTableView"
+			 x:DataType="vm:TableViewModel">
+	<Design.DataContext>
+		<vm:IllnessViewModel/>
+	</Design.DataContext>
+
+	<UserControl.DataTemplates>
+		<DataTemplate DataType="vm:AllIllnessesViewModel">
+			<views:AllIllnessView/>
+		</DataTemplate>
+		<DataTemplate DataType="vm:NewIllnessViewModel">
+			<views:NewIllnessView/>
+		</DataTemplate>
+	</UserControl.DataTemplates>
+
+	<StackPanel Orientation="Vertical">
+
+		<ContentControl Content="{Binding CurrentViewModel}"/>
+	</StackPanel>
 </UserControl>

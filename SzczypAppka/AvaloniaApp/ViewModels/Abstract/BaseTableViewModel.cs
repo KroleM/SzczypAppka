@@ -1,11 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Windows.Input;
 
 namespace AvaloniaApp.ViewModels
 {
-	public partial class BaseTableViewModel<T> : ViewModelBase where T : Database.Models.BaseDatatable
+	public partial class BaseTableViewModel<T> : TableViewModel where T : Database.Models.BaseDatatable
 	{
-		[ObservableProperty]
-		DatabaseViewModel? _currentViewModel;
+		//[ObservableProperty]
+		//DatabaseViewModel? _currentViewModel;
 
 		[ObservableProperty]
 		BaseListViewModel<T>? _listViewModel;
@@ -14,6 +15,9 @@ namespace AvaloniaApp.ViewModels
 		BaseNewViewModel<T>? _newViewModel;
 
 		//edit?
+
+		//public ICommand OpenListCommand { get; }
+		//public ICommand OpenNewCommand { get; }
 
 		public BaseTableViewModel(BaseListViewModel<T> listViewModel, BaseNewViewModel<T> newViewModel, string displayTitle = "")
 		{

@@ -6,7 +6,10 @@ namespace AvaloniaApp.ViewModels
 	public partial class ButtonViewModel : ViewModelBase
 	{
 		[ObservableProperty]
-		string? _description;	//for ToolTip
+		string? _description;   //for ToolTip
+
+		[ObservableProperty]
+		bool _isClicked;
 
 		public ICommand ButtonCommand { get; }
 

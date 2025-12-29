@@ -32,8 +32,8 @@
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>
-			<ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}"
-				   IsVisible="{Binding CurrentViewModel, Converter={x:Static ObjectConverters.IsNotNull}}">
+			<ContentControl Grid.Column="1" Content="{Binding CurrentAdminViewModel}"
+				   IsVisible="{Binding CurrentAdminViewModel, Converter={x:Static ObjectConverters.IsNotNull}}">
 				<ContentControl.ContentTemplate>
 					<DataTemplate>
 						<views:BaseTableView/>

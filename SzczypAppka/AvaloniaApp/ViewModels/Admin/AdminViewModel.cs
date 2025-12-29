@@ -9,14 +9,15 @@ namespace AvaloniaApp.ViewModels
 	public partial class AdminViewModel : ViewModelBase
 	{
 		[ObservableProperty]
-		ViewModelBase? _currentViewModel;
-		//DatabaseViewModel _currentViewModel;
+		ViewModelBase? _currentAdminViewModel;
+		//DatabaseViewModel _currentAdminViewModel;
 
 		[ObservableProperty]
 		ObservableCollection<ButtonViewModel> _tables = new();
 
 		[ObservableProperty]
-		BaseTableViewModel<Illness>? _illnessViewModel;
+		IllnessViewModel? _illnessViewModel;
+		//BaseTableViewModel<Illness>? _illnessViewModel;
 
 		[ObservableProperty]
 		BaseTableViewModel<Vaccine>? _vaccineViewModel;
@@ -50,7 +51,7 @@ namespace AvaloniaApp.ViewModels
 			{
 				IllnessViewModel = new(new AllIllnessesViewModel(), new NewIllnessViewModel());
 			}
-			CurrentViewModel = IllnessViewModel;
+			CurrentAdminViewModel = IllnessViewModel;
 		}
 		#endregion
 	}
