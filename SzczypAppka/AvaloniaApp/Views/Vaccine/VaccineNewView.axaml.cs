@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace AvaloniaApp.Views;
 
-public partial class AllIllnessView : UserControl
+public partial class VaccineNewView : UserControl
 {
-    public AllIllnessView()
+    public VaccineNewView()
     {
         InitializeComponent();
     }

@@ -24,15 +24,18 @@ namespace AvaloniaApp.ViewModels
 
 		//edit?
 
-		public BaseTableViewModel(BaseListViewModel<T> listViewModel, BaseNewViewModel<T> newViewModel, string displayTitle = "")
+		public BaseTableViewModel(
+			BaseListViewModel<T> listViewModel, 
+			BaseNewViewModel<T> newViewModel, 
+			string displayTitle = "")
 		{
 			DisplayTitle = displayTitle;
 			ListViewModel = listViewModel;
 			NewViewModel = newViewModel;
 			CurrentViewModel = ListViewModel;
 
-			TableCRUDs.Add(new ButtonViewModel("Wszystkie choroby", new RelayCommand(() => CurrentViewModel = ListViewModel)));
-			TableCRUDs.Add(new ButtonViewModel("Nowa choroba", new RelayCommand(() => CurrentViewModel = NewViewModel)));
+			TableCRUDs.Add(new ButtonViewModel(listViewModel.DisplayTitle, new RelayCommand(() => CurrentViewModel = ListViewModel)));
+			TableCRUDs.Add(new ButtonViewModel(NewViewModel.DisplayTitle, new RelayCommand(() => CurrentViewModel = NewViewModel)));
 		}
 	}
 }

@@ -10,11 +10,17 @@
 			 x:CompileBindings="False">
 
 	<UserControl.DataTemplates>
-		<DataTemplate DataType="vm:AllIllnessesViewModel">
-			<views:AllIllnessView/>
+		<DataTemplate DataType="vm:ListIllnessViewModel">
+			<views:IllnessListView/>
 		</DataTemplate>
 		<DataTemplate DataType="vm:NewIllnessViewModel">
 			<views:NewIllnessView/>
+		</DataTemplate>
+		<DataTemplate DataType="vm:ListVaccineViewModel">
+			<views:VaccineListView/>
+		</DataTemplate>
+		<DataTemplate DataType="vm:NewVaccineViewModel">
+			<views:VaccineNewView/>
 		</DataTemplate>
 	</UserControl.DataTemplates>
 

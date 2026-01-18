@@ -13,9 +13,10 @@
 		<vm:AdminViewModel/>
 	</Design.DataContext>
 
+	<!-- FIXME czy te DataTemplates s¹ potrzebne? -->
 	<UserControl.DataTemplates>
-		<DataTemplate DataType="vm:AllIllnessesViewModel">
-			<views:AllIllnessView/>
+		<DataTemplate DataType="vm:ListIllnessViewModel">
+			<views:IllnessListView/>
 		</DataTemplate>
 		<DataTemplate DataType="vm:NewIllnessViewModel">
 			<views:NewIllnessView/>

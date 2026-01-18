@@ -49,7 +49,7 @@ namespace AvaloniaApp.ViewModels
 		{
 			if (IllnessViewModel is null)
 			{
-				IllnessViewModel = new(new AllIllnessesViewModel(), new NewIllnessViewModel());
+				IllnessViewModel = new(new ListIllnessViewModel(), new NewIllnessViewModel());
 			}
 			CurrentAdminViewModel = IllnessViewModel;
 		}

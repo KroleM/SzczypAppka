@@ -1,5 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace AvaloniaApp.ViewModels
 {
@@ -8,6 +12,7 @@ namespace AvaloniaApp.ViewModels
 		public NewVaccineViewModel()
 			: base("Nowa szczepionka")
 		{
+			AvailableIllnesses = new(Context.Illness.OrderBy(i => i.Name));
 		}
 
 		[ObservableProperty]
@@ -19,8 +24,14 @@ namespace AvaloniaApp.ViewModels
 		[ObservableProperty]
 		bool _isActive = true;
 
-		//lista wszystkich chorób
-		//lsita chorób przypisanych do szczepionki
+		[ObservableProperty]
+		List<Database.Models.Illness> _availableIllnesses;
+
+		[ObservableProperty]
+		Database.Models.Illness? _selectedIllness;
+
+		[ObservableProperty]
+		ObservableCollection<Database.Models.Illness> _currentIllnesses = new();
 
 		public override bool ValidateSave()
 		{
@@ -36,7 +47,24 @@ namespace AvaloniaApp.ViewModels
 				IsActive = _isActive,
 				CreatedDate = DateTimeOffset.Now,
 				ModifiedDate = DateTimeOffset.Now,
+				//IllnessVaccines
 			};
+		}
+
+		[RelayCommand]
+		void AddSelectedIllness()	//async?
+		{
+			if (SelectedIllness is null)
+			{
+				return;
+			}
+			if (CurrentIllnesses.Contains(SelectedIllness))
+			{
+				return;
+			}
+
+			CurrentIllnesses.Add(SelectedIllness);
+			SelectedIllness = null;
 		}
 	}
 }
