@@ -1,9 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Database.Models;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace AvaloniaApp.ViewModels
 {
@@ -38,8 +41,14 @@ namespace AvaloniaApp.ViewModels
 			return true;
 		}
 
-		public override Database.Models.Vaccine SetItem()
+		public Database.Models.Vaccine SetItem()
 		{
+			// 1. Dodanie choroby do IllnessVaccines
+			// 2. Dodanie schematu
+			// 3. Zwrócenie Vaccine
+
+
+
 			return new Database.Models.Vaccine()
 			{
 				Name = _name,
@@ -65,6 +74,33 @@ namespace AvaloniaApp.ViewModels
 
 			CurrentIllnesses.Add(SelectedIllness);
 			SelectedIllness = null;
+		}
+
+		protected override async Task UpdateDatabase()
+		{
+			var vaccine = SetItem();
+
+			using (var dbContextTransaction = Context.Database.BeginTransaction())
+			{
+				await Context.AddAsync(vaccine);	//bez await?
+				await Context.SaveChangesAsync();
+
+				if (!CurrentIllnesses.IsNullOrEmpty())
+				{
+					foreach (var illness in CurrentIllnesses)
+					{
+						Context.IllnessVaccine.Add(new IllnessVaccine
+						{
+							Id = 0,
+							IsActive = true,
+							IllnessId = illness.Id,
+							VaccineId = vaccine.Id,
+						});
+						await Context.SaveChangesAsync();
+					}
+				}
+				dbContextTransaction.Commit();
+			}
 		}
 	}
 }

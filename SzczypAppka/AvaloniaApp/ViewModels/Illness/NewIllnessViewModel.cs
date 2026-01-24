@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using System;
+using System.Threading.Tasks;
 
 namespace AvaloniaApp.ViewModels
 {
@@ -24,7 +25,13 @@ namespace AvaloniaApp.ViewModels
 			return true;
 		}
 
-		public override Database.Models.Illness SetItem()
+		protected override async Task UpdateDatabase()
+		{
+			await Context.AddAsync(SetItem());
+			await Context.SaveChangesAsync();
+		}
+
+		public Database.Models.Illness SetItem()
 		{
 			return new Database.Models.Illness()
 			{

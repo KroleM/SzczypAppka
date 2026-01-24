@@ -18,15 +18,18 @@ namespace AvaloniaApp.ViewModels
 
 		public IAsyncRelayCommand CancelCommand { get; }
 		public IAsyncRelayCommand SaveCommand { get; }
-		public abstract T SetItem();
+		//public abstract T SetItem();
 		public abstract bool ValidateSave();
+
+		protected abstract Task UpdateDatabase();
 
 		private async Task OnSave()
 		{
 			try
 			{
-				await Context.AddAsync(SetItem());
-				await Context.SaveChangesAsync();
+				await UpdateDatabase();
+				//await Context.AddAsync(SetItem());
+				//await Context.SaveChangesAsync();
 				//WeakReferenceMessenger.Default.Send(new ViewRequestMessage(MainWindowView.BackAndRefresh));
 			}
 			catch (Exception ex)
